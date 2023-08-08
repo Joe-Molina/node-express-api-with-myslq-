@@ -9,7 +9,7 @@ import {
 
 const router = Router();
 
-router.get("/indexApp", getNotes);
+router.get("/", getNotes);
 
 router.get("/indexApp/:id", getNote);
 
