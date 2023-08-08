@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>app notas</title>
+</head>
+<body>
+    <h1>la mejor app de notas</h1>
+
+    <form method="POST" action="/indexApp">
+        <label for="titleInput">Title:</label>
+        <input type="text" id="titleInput" name="title" required>
+
+        <label for="contentInput">content:</label>
+        <input type="text" id="contentInput" name="content" required>
+
+        <label for="createdAt">createdAt:</label>
+        <input type="text" id="createdAt" name="createdAt" required>
+        
+        <label for="userId"> seleccione un usuario:</label>
+        <select id="userId" name="userId">
+            <% users.forEach(user =>{ %>
+                <option value='<%= user.id %>'><%= user.name %></option>
+            <%  })  %>
+        </select>
+        
+
+
+
+        <button type="submit">Enviar</button>
+      </form>
+
+    <h2>tus notas</h2>
+    <% notes.forEach(note => { %>
+        <article>
+            <h3><%= note.title %></h3>
+            <p><%= note.content %></p>
+            <p><%= note.createdAt %></p>
+            <p><%= note.userId  %></p>
+        </article>
+    <% }) %>
+</body>
+</html>
+<!-- <%  %> -->

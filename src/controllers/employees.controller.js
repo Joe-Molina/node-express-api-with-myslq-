@@ -13,6 +13,7 @@ export const getEmployees = async (req, res) => {
   }
 };
 
+
 export const getEmployee = async (req, res) => {
   console.log(req.params.id);
 
