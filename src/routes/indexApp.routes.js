@@ -13,7 +13,7 @@ router.get("/", getNotes);
 
 router.get("/indexApp/:id", getNote);
 
-router.post("/indexApp", createNote);
+router.post("/", createNote);
 
 router.patch("/indexApp/:id", updateNote);
 
