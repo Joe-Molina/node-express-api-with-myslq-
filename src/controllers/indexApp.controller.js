@@ -1,6 +1,9 @@
 import { pool } from "../db.js";
 import bodyParser from 'body-parser'
 import axios from 'axios'
+import moment from 'moment'
+
+const now = moment().format('MMMM Do YYYY, h:mm:ss a');
 
 export const getNotes = async (req, res) => {
     const [rows] = await pool.query("SELECT * FROM notes");
@@ -23,14 +26,14 @@ export const getNote = async (req, res) => {
 export const createNote = async (req, res) => {
 
     
-    const { title, content, createdAt, userId } = req.body;
+    const { title, content, userId } = req.body;
     
     console.log(title)
 
 
      const [rows] = await pool.query(
     "INSERT INTO notes(title, content, createdAt, userId) VALUES (?, ?, ?, ?)",
-    [title, content, createdAt, userId]
+    [title, content, now, userId]
     );
 
 
