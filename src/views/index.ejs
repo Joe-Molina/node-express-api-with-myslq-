@@ -1,42 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;1,300;1,400&family=Koulen&display=swap" rel="stylesheet">
     <title>app notas</title>
 </head>
 <body>
-    <h1>la mejor app de notas</h1>
+    <header class="header">
+        <h1>
+            Tus Notas
+        </h1>
+    </header>
 
-    <form method="POST" action="/">
-        <label for="titleInput">Title:</label>
-        <input type="text" id="titleInput" name="title" required>
+    <div class="all-container">
 
-        <label for="contentInput">content:</label>
-        <input type="text" id="contentInput" name="content" required>
-        
-        <label for="userId"> seleccione un usuario:</label>
-        <select id="userId" name="userId">
-            <% users.forEach(user =>{ %>
-                <option value='<%= user.id %>'><%= user.name %></option>
-            <%  })  %>
-        </select>
-        
+        <form method="POST" action="/" class="form">
 
+            <input type="text" id="titleInput" name="title" required placeholder="Titulo">
 
+            <textarea name="content" id="contentInput" placeholder="Crear nota..." required></textarea>
+    
+            <button type="submit" id="submit">Enviar</button>
+        </form>
 
-        <button type="submit">Enviar</button>
-      </form>
+        <div class="notes-container">
 
-    <h2>tus notas</h2>
-    <% notes.forEach(note => { %>
-        <article>
-            <h3><%= note.title %></h3>
-            <p><%= note.content %></p>
-            <p><%= note.createdAt %></p>
-            <p><%= note.userId  %></p>
-        </article>
-    <% }) %>
+            <% notes.forEach(note => { %>
+                <article class="note">
+                    <h3><%= note.title %></h3>
+                    <p class="note-content">- <%= note.content %></p>
+                    <p class="note-created"> Ultima modificacion: <%= note.createdAt %></p>
+                </article>
+            <% }) %>
+
+        </div>
+
+    </div>
 </body>
 </html>
 <!-- <%  %> -->

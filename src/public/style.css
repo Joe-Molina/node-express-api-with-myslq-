@@ -1,0 +1,153 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+  --koulen: 'Koulen', cursive;
+  --jost: 'Jost', sans-serif;
+}
+
+body {
+    background-color: #202020;
+}
+
+
+.header{
+    width: 100%;
+    height: 70px;
+    background-color: #ac9e61;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    font-family: var(--koulen);
+    color: #f8f8f8;
+    font-weight: 100;
+}
+
+.all-container{
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    height: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+/* formulario */
+.form{
+    width: 30%;
+    background-color: #1D1D1D;
+    margin: 15px;
+    border: #f8f8f8 solid thin;
+    border-radius: 10px;
+    color: #f8f8f8;
+    padding: 20px;
+}
+
+#titleInput{
+    background-color: #1D1D1D;
+    border: none;
+    font-family: var(--koulen);
+    font-size: 32px;
+    color: #f8f8f8;
+    outline: none;
+}
+
+#contentInput{
+    width: 100%;
+    height: 89%;
+    font-size: 20px;
+    background-color: #1D1D1D;
+    border: none;
+    font-family: var(--jost);
+    color: #f8f8f8;
+    outline: none;
+    resize:none
+
+}
+
+#submit {
+    width: 100%;
+    font-family: var(--jost);
+    border: none;
+    color: #f8f8f8;
+    background-color: #1D1D1D;
+    font-weight: 500;
+    font-size: 18px;
+    text-align: end;
+}
+
+
+/* notas */
+.notes-container {
+    
+    height: 80%;
+    max-height: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    overflow: auto;
+    align-items: center;
+}
+
+.note{
+    background-color: #1D1D1D;
+    width: 300px;
+    height: 300px;
+    margin: 15px;
+    border: #f8f8f8 solid thin;
+    border-radius: 10px;
+    color: #f8f8f8;
+    padding: 10px;
+}
+
+.note h3 {
+    font-family: var(--koulen);
+    text-align: center;
+    font-weight: 100;
+}
+
+.note-content {
+    font-family: var(--jost);
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+    text-align: justify;
+}
+
+.note-created{
+    font-family: var(--jost);
+    text-align: center;
+    font-size: 12px;
+    color: #f8f8f897;
+}
+
+
+@media (max-width: 700px) {
+    .all-container{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .form {
+        width: 350px;
+        height: 300px;
+        margin: 0;
+        margin-bottom: 15px;
+    }
+
+    #titleInput{
+        width: 100%;
+    }
+
+    #contentInput{
+        height: 70%;
+    }
+}
