@@ -1,10 +1,15 @@
 import path from "path";
 import { fileURLToPath } from "url";
 import express from "express";
-import employeesRoutes from "./routes/employees.routes.js";
-import indexApp from './routes/indexApp.routes.js'
 import ejs from "ejs";
-import bodyParser from 'body-parser'
+import bodyParser from "body-parser";
+import myConnection from 'express-myconnection'
+import mysql from 'mysql2'
+import session from "express-session";
+import employeesRoutes from "./routes/employees.routes.js";
+import indexApp from "./routes/indexApp.routes.js";
+import login from './routes/login.routes.js';
+import register from './routes/register.routes.js'
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -18,10 +23,24 @@ app.set("views", path.join(__dirname, "views"));
 // middlewares
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(bodyParser.json());
+app.use(session({
+  secret: 'secret',
+  resave: true,
+  saveUninitialized: true
+}))
 
+app.use(myConnection(mysql, {
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'notasrapidasdb'
+}));
 
 // routes
+app.use(login)
+app.use(register)
 app.use(indexApp);
 app.use("/api", employeesRoutes);
 
