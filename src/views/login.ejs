@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/loginregister.css">
     <title>Login</title>
 </head>
 <body>
-    <h1>login</h1>
-    
+    <h1>Crea notas</h1>
+    <h2>Ingresar</h2>
+
     <form action="/login" method="POST">
-
-
         <input type="email" name="email" id="" placeholder="introduce tu email">
         <input type="password" name="password" id="" placeholder="introduce tu contrasena">
-        <input type="submit" value="Enviar">
+        <input type="submit" value="Enviar" class="submit">
 
-                <% if (error) { %>
-            <p><%= error %></p>
-          <% } %>
+        <% if (error) { %>
+        <p><%= error %></p>
+        <% } %>
     </form>
+    
+    <p class="switchLogRes">no tienes una cuenta? <a href="/register">crea una cuenta</a> ahora.</p>
 
 </body>
 </html>

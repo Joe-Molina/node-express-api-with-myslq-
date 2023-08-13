@@ -1,0 +1,66 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #202020;
+    color: #f8f8f8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+body h1{
+    font-family: 'Koulen', cursive;
+    font-weight: 400;
+}
+
+body h2{
+    font-family: 'Koulen', cursive;
+    font-weight: 400;
+}
+
+form {
+    width: 300px;
+    height: 500px;
+    background-color: rgba(0, 0, 0, 0.386);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+form input {
+    width: 90%;
+    height: 50px;
+    margin: 20px 20px;
+    border: none;
+    outline: none;
+    background-color: #20202000;
+    color: #f8f8f8;
+    font-family: 'Koulen', cursive;
+}
+
+form input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 30px rgba(0, 0, 0, 0.83) inset !important;
+  }
+
+.submit:hover{
+    transition: .3s;
+    background-color: #ac9e61;
+    color: #202020;
+}
+
+.switchLogRes {
+    font-family: 'Koulen', cursive;
+}
+
+.switchLogRes a{
+    color: #ac9e61;
+    text-decoration: none;
+}
