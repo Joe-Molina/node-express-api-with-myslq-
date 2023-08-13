@@ -4,6 +4,13 @@ import { fileURLToPath } from "url";
 import ejs from "ejs";
 import bodyParser from "body-parser";
 import mysql from 'mysql2'
+import {
+  DB_HOST,
+  DB_PORT,
+  DB_DATABASE,
+  DB_USER,
+  DB_PASSWORD
+} from './config.js'
 import myConnection from 'express-myconnection'
 import session from "express-session";
 import employeesRoutes from "./routes/employees.routes.js";
@@ -32,10 +39,10 @@ app.use(session({
 }))
 
 app.use(myConnection(mysql, {
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'notasrapidasdb'
+  host: DB_HOST,
+  user: DB_USER,
+  password: DB_PASSWORD,
+  database: DB_DATABASE
 }));
 
 // routes
