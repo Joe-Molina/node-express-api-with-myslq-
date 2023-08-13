@@ -11,15 +11,17 @@
 
 body {
     background-color: #202020;
+    width: 100vw;
+    height: 100vh;
 }
 
 
 .header{
     width: 100%;
-    height: 70px;
+    height: 7%;
     background-color: #ac9e61;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -29,21 +31,33 @@ body {
     font-weight: 100;
 }
 
+.header a{
+    font-family: var(--koulen);
+    color: #f8f8f8;
+    font-weight: 100;
+    text-decoration: none;
+    transition: .2s;
+}
+
+.header a:hover{
+    color: #202020;
+}
+
+
+/* contenedor */
 .all-container{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 93%;
     box-sizing: border-box;
-    height: 100%;
     display: flex;
-    padding: 20px;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 /* formulario */
 .form{
     width: 30%;
     background-color: #1D1D1D;
-    margin: 15px;
+    margin: 60px 20px;
     border: #f8f8f8 solid thin;
     border-radius: 10px;
     color: #f8f8f8;
@@ -51,6 +65,7 @@ body {
 }
 
 #titleInput{
+    width: 100%;
     background-color: #1D1D1D;
     border: none;
     font-family: var(--koulen);
@@ -86,21 +101,20 @@ body {
 
 /* notas */
 .notes-container {
-    
-    height: 80%;
+    width: 70%;
     max-height: 800px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     overflow: auto;
-    align-items: center;
+    justify-content: center;
+    margin: 60px;
+    gap: 20px;
 }
 
 .note{
     background-color: #1D1D1D;
     width: 300px;
     height: 300px;
-    margin: 15px;
     border: #f8f8f8 solid thin;
     border-radius: 10px;
     color: #f8f8f8;
@@ -131,6 +145,7 @@ body {
 
 @media (max-width: 700px) {
     .all-container{
+        height: 100%;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -138,16 +153,20 @@ body {
 
     .form {
         width: 350px;
-        height: 300px;
+        height: 350px;
         margin: 0;
-        margin-bottom: 15px;
     }
 
     #titleInput{
-        width: 100%;
+        
     }
 
     #contentInput{
-        height: 70%;
+        height: 75%;
+    }
+
+    .notes-container{
+        height: 400px;
+        margin: 10px;
     }
 }

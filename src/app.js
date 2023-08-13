@@ -1,10 +1,10 @@
+import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import express from "express";
 import ejs from "ejs";
 import bodyParser from "body-parser";
-import myConnection from 'express-myconnection'
 import mysql from 'mysql2'
+import myConnection from 'express-myconnection'
 import session from "express-session";
 import employeesRoutes from "./routes/employees.routes.js";
 import indexApp from "./routes/indexApp.routes.js";
@@ -39,8 +39,9 @@ app.use(myConnection(mysql, {
 }));
 
 // routes
-app.use(login)
 app.use(register)
+app.use(login)
+//more rutes
 app.use(indexApp);
 app.use("/api", employeesRoutes);
 

@@ -4,9 +4,14 @@ import axios from "axios";
 import moment from "moment";
 import bcrypt from "bcrypt";
 import myConnection from "express-myconnection";
+import session from "express-session";
 
 export const getLogin = async (req, res) => {
-  res.render("login", { error: false });
+  if (req.session.loggedin != true) {
+    res.render("login", { error: false });
+  } else {
+    res.redirect("/");
+  }
 };
 
 export const postLogin = async (req, res) => {
@@ -18,29 +23,31 @@ export const postLogin = async (req, res) => {
       [data.email],
       (err, userdata) => {
         if (userdata.length > 0) {
-            const password = data.password
-            const hash =  userdata[0].password
+          const password = data.password;
+          const hash = userdata[0].password;
 
-          bcrypt.compare(
-            password,
-            hash,
-            (err, isMatch) => {
+          bcrypt.compare(password, hash, (err, isMatch) => {
+            if (!isMatch) {
+              res.render("login", { error: "incorrect password" });
+            } else {
+              req.session.loggedin = true;
+              req.session.name = userdata[0].name;
+              req.session.email = userdata[0].email;
 
-                console.log(isMatch)
-            //   if (!isMatch) {
-            //     console.log(password)
-            //     console.log(hash)
-            //     console.log(isMatch);
-            //     res.render("login", { error: "incorrect password" });
-            //   } else {
-            //     console.log("welcome");
-            //   }
+              res.redirect("/");
             }
-          );
+          });
         } else {
           res.render("login", { error: "el usuario no existe" });
         }
       }
     );
   });
+};
+
+export const getLogOut = async (req, res) => {
+  if (req.session.loggedin == true) {
+    req.session.destroy();
+  }
+  res.redirect("/login");
 };

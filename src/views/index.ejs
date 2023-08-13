@@ -7,13 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;1,300;1,400&family=Koulen&display=swap" rel="stylesheet">
-    <title>app notas</title>
+    <title>usuario: <%= user %></title>
 </head>
 <body>
     <header class="header">
         <h1>
-            Tus Notas
+            Notas de <%= user %>
         </h1>
+
+        <a href="http://localhost:3000/logout">
+            Cerrar sesion
+        </a>
     </header>
 
     <div class="all-container">
